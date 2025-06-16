@@ -1,0 +1,54 @@
+{
+  "name": "voiceforge",
+  "displayName": "VoiceForge",
+  "description": "Generate voice from markdown files line by line",
+  "version": "0.0.2",
+  "engines": {
+    "vscode": "^1.74.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "publisher": "voiceforge",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/voiceforge/voiceforge"
+  },
+  "keywords": [
+    "markdown",
+    "voice",
+    "audio",
+    "text-to-speech",
+    "slide",
+    "presentation"
+  ],
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "voiceforge.openEditor",
+        "title": "Open in VoiceForge"
+      }
+    ],
+    "menus": {
+      "explorer/context": [
+        {
+          "when": "resourceExtname == .md",
+          "command": "voiceforge.openEditor",
+          "group": "navigation"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.74.0",
+    "@types/node": "16.x",
+    "typescript": "^4.9.4"
+  }
+}
